@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Link all the services into terraform/modules dir
+
+modules_dir="$( dirname "${BASH_SOURCE[0]}" )/../terraform/modules"
+
+mkdir -p $modules_dir
+
+for repo in \
+  aws-lambda-boilerplate
+do
+  ln -sf "../../../$repo" "$modules_dir/"
+done
